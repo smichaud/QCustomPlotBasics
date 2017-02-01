@@ -1,13 +1,13 @@
-cmake_minimum_required(VERSION 2.8.11)
+cmake_minimum_required(VERSION 3.1)
 project(QCustomPlotBasics)
 
 set(CMAKE_INCLUDE_CURRENT_DIR ON)
 set(CMAKE_AUTOMOC ON)
 
-find_package(Qt4 REQUIRED)
-include(${QT_USE_FILE})
+find_package(Qt5 REQUIRED COMPONENTS Core PrintSupport Widgets)
+include_directories(${Qt5Widgets_INCLUDE_DIRS})
 
-QT4_WRAP_UI(UI_SOURCE_FILES ui/mainwindow.ui)
+QT5_WRAP_UI(UI_SOURCE_FILES ui/mainwindow.ui)
 
 include_directories(${CMAKE_CURRENT_SOURCE_DIR}/QCustomPlot)
 include_directories(${CMAKE_CURRENT_SOURCE_DIR}/src)
@@ -17,4 +17,8 @@ add_executable(BasicPlot
     ${CMAKE_CURRENT_SOURCE_DIR}/QCustomPlot/qcustomplot.cpp
     ${UI_SOURCE_FILES}
     )
-target_link_libraries(BasicPlot ${QT_LIBRARIES})
+target_link_libraries(BasicPlot
+    Qt5::Core
+    Qt5::PrintSupport
+    Qt5::Widgets
+    )
