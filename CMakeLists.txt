@@ -4,8 +4,10 @@ project(QCustomPlotBasics)
 set(CMAKE_INCLUDE_CURRENT_DIR ON)
 set(CMAKE_AUTOMOC ON)
 
-find_package(Qt5 REQUIRED COMPONENTS Core PrintSupport Widgets)
+find_package(Qt5 REQUIRED COMPONENTS Core Widgets PrintSupport)
+include_directories(${Qt5Core_INCLUDE_DIRS})
 include_directories(${Qt5Widgets_INCLUDE_DIRS})
+include_directories(${Qt5PrintSupport_INCLUDE_DIRS})
 
 QT5_WRAP_UI(UI_SOURCE_FILES ui/mainwindow.ui)
 
@@ -19,6 +21,6 @@ add_executable(BasicPlot
     )
 target_link_libraries(BasicPlot
     Qt5::Core
-    Qt5::PrintSupport
     Qt5::Widgets
+    Qt5::PrintSupport
     )
