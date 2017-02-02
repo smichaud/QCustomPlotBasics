@@ -1,5 +1,6 @@
-# QCustomPlotBasics
+# cpp-plot
 
-A simple project to use QCustomPlot library with CMake. 
+Example of plot tools in C++ with Cmake
 
-The library is available at: http://www.qcustomplot.com/
+- [QCustomPlot](http://www.qcustomplot.com/)
+- [Gnuplot-iostream] (http://stahlke.org/dan/gnuplot-iostream/)
